@@ -1,7 +1,7 @@
 package org.example.Tema2.Light;
 
 public class Light {
-    private void isOn;
+    private boolean isOn;
     private int intensity;
 
     public Light() {
