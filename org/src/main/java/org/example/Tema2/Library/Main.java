@@ -13,6 +13,14 @@ public class Main {
         String authorName = love.getAuthor().getName();
         int bookYear = love.getYear();
 
-        System.out.println("Detaliile Cartii: ");
+        System.out.println("Detaliile Cartii: " + bookName + " , " + bookYear + " , " + bookPrice);
     }
 }
+
+
+// Create overload methods for the shapes drawing methods.
+//public static void drawFullShape(int side) {
+//    System.out.println("Desenare Patrat (" + side + "x" + side + "):");
+//    drawFullShape(side, side);
+//}
+//}

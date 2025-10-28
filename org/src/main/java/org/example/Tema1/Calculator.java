@@ -2,40 +2,47 @@ package org.example.Tema1;
 
 public class Calculator {
     public static void main(String[] args) {
-        if (args.length != 3) {
-            System.out.println("Error: wrong number of arguments");
-            return;
-        }
-
-        //extract the args
-        float a = Float.parseFloat(args[0]);
-        float b = Float.parseFloat(args[2]);
-        String operator = args[1];
-
 
         float result = 0;
-        switch (operator) {
-            case "+":
-                result = a + b;
-                break;
-            case "-":
-                result = a - b;
-                break;
-            case "*":
-                result = a * b;
-                break;
-            case "/":
-                if (b == 0){
-                    System.out.println("Division by zero");
-                    return;
-                }
-                result = a / b;
-                break;
-            default:
-                System.out.println("Error: unknown operator");
-                return;
-        }
-        System.out.println("Result " + a + operator + b + "=" + result);
-    }
+        boolean operationPerformed = false;
 
+        if (args.length == 3) {
+            float a = Float.parseFloat(args[0]);
+            String operator = args[1];
+            float b = Float.parseFloat(args[2]);
+
+            switch (operator) {
+                case "+":
+                    result = a + b;
+                    operationPerformed = true;
+                    break;
+                case "-":
+                    result = a - b;
+                    operationPerformed = true;
+                    break;
+                case "*":
+                    result = a * b;
+                    operationPerformed = true;
+                    break;
+                case "/":
+                    if (b != 0) {
+                        result = a / b;
+                        operationPerformed = true;
+                    } else {
+                        System.out.println("Eroare: Nu se poate imparti la zero!");
+                        return;
+                    }
+                    break;
+            }
+
+            if (operationPerformed) {
+                System.out.println("Result is: " + result);
+            } else {
+                System.out.println("Eroare: Operator invalid. Foloseste +, -, * sau /");
+            }
+
+        } else {
+            System.out.println("3 args are needed!");
+        }
+    }
 }
